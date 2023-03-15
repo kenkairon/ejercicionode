@@ -1,0 +1,32 @@
+<style>
+    .columna {
+        display: table-cell;
+    }
+</style>
+<%- include('partials/header') %>
+<title>Resultados</title>
+<div class="container">
+    <table class="table table table-striped table-hover">
+        <thead>
+        <tr>
+        <th>Pilotos</th>
+        <% circuitos.forEach(function(flag) { %>
+            <td>
+                <img src="<%= flag.imagen %>" alt="Banderas de países" width="25px" height="30px">
+            </td>
+        <% }); %>
+        </tr>
+        <tr>
+        </thead>
+    <tbody>
+        <% resultados.forEach(function(elemento) { %>
+            <% if (elemento.circuitos === "Gulf Air Bahrain GP, Bahrain International Circuit") { %>
+                <tr>
+                    <td class="columna"><%= elemento.piloto %></td>
+                    <td class="columna"><%= elemento.puntaje %></td>
+                </tr>
+            <% } %>
+        <% }); %>
+    </tbody>
+    </table>
+</div>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %>
+    <title>Nueva Competencia</title>
+ 
+</head>
+<body class="row container"><br>
+    <div class="container col-xl-10">
+        <form method="POST" action="/new-ingreso" class="card card-body border-primary">
+            <div class="col-xl-8">
+                <label>Carrera</label>
+                <select class="form-select" aria-label="Default select example" name="circuitos" required>
+                    <option selected>Nombre de la Carrera</option>
+                    <% circuitos.forEach(function(cir) { %>
+                        <option value="<%= cir.circuito %>"><%= cir.circuito %></option>
+                    <% }); %>
+                </select>
+                <br>
+            </div>
+            <hr>
+            <div class="col-xl-8">
+                <label>Pilotos</label>
+                <select class="form-select" aria-label="Default select example"  required onchange="seleccionarPilotos()" name="piloto">
+                    <option selected>Piloto</option>
+                    <% equipos.forEach(function(equipo) { %>
+                        <option name="piloto" value="<%= equipo.piloto1 %>" data-escuderia="<%= equipo.escuderia %>"><%= equipo.piloto1 %></option>
+                        <option name="piloto" value="<%= equipo.piloto2 %>" data-escuderia="<%= equipo.escuderia %>"><%= equipo.piloto2 %></option>
+                    <% }); %>
+                </select>
+                <br>
+            </div>           
+            <div class="col-xl-8">
+                <select id="escuderias-select" class="form-select" aria-label="Default select example" name="escuderia"required>
+                    <option selected>Escudería</option>
+                        <% equipos.forEach(function(escuderia) { %>
+                        <option   value="<%= escuderia.escuderia %>"><%= escuderia.escuderia %> </option>
+                        <% }); %>
+                </select>
+            </div>
+            <hr>
+            <p id="resultado"></p>
+            <div class="col-xl-8">
+                <label for="minutos">Minutos Totales</label>
+                <input type="text" class="form-control" name="minutos" id="minutos" placeholder="Ingrese los minutos"required>
+            </div>
+            <div class="col-xl-8">
+                <label for="opciones">Posición de la Carrera:</label>
+                <select id="opciones" class="form-select"  name="ubicacion" onchange="mostrarSelect()" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Posición 1</option>
+                    <option value="2">Posición 2</option>
+                    <option value="3">Posición 3</option>
+                    <option value="4">Posición 4</option>
+                    <option value="5">Posición 5</option>
+                    <option value="6">Posición 6</option>
+                    <option value="7">Posición 7</option>
+                    <option value="8">Posición 8</option>
+                    <option value="9">Posición 9</option>
+                    <option value="10">Posición 10</option>
+                    <option value="11">Posición 11</option>
+                </select><br>
+                <div id="select-dinamico"></div>
+            </div><hr>
+            <div class="col-xl-8">
+                <select class="form-select"  aria-label="Default select example" name="abandono" required>
+                    <option selected>Abandono</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <br>
+            <div class="col-xl-8">
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </div>
+        </form>
+    </div>
+    
+</body>
+
+
+<script>
+function mostrarSelect() {
+    const opcionesSelect = {
+    1: "<select name='puntaje'><option value='25'>25 puntos</option>",
+    2: "<select name='puntaje'><option value='18'>18puntos</option>",
+    3: "<select name='puntaje'><option value='15'>15puntos</option>",
+    4: "<select name='puntaje'><option value='12'>12puntos</option>",
+    5: "<select name='puntaje'><option value='10'>10puntos</option>",
+    6: "<select name='puntaje'><option value='8'>8puntos</option>",
+    7: "<select name='puntaje'><option value='6'>6puntos</option>",
+    8: "<select name='puntaje'><option value='4'>4puntos</option>",
+    9: "<select name='puntaje'><option value='2'>2puntos</option>",
+    10: "<select name='puntaje'><option value='1'>1puntos</option>",
+    11: "<select name='puntaje'><option value='0'>0puntos</option>",
+    };
+    const selectDinamico = document.getElementById("select-dinamico");
+    const opcionSeleccionada = document.getElementById("opciones").value;
+    selectDinamico.innerHTML = opcionesSelect[opcionSeleccionada] || "";
+}
+
+function seleccionarPilotos() {
+        // Obtener los selects y opciones
+        var pilotoSelect = document.querySelector('[name="piloto"]');
+        var escuderiaSelect = document.getElementById('escuderias-select');
+        var opciones = escuderiaSelect.options;
+
+        // Obtener la escudería correspondiente al piloto seleccionado
+        var escuderia = pilotoSelect.options[pilotoSelect.selectedIndex].getAttribute('data-escuderia');
+
+        // Seleccionar la opción correspondiente en el select de escuderías
+        for (var i = 0; i < opciones.length; i++) {
+            if (opciones[i].value === escuderia) {
+                opciones[i].selected = true;
+                break;
+            }
+        }
+    }
+</script>
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %>
+    <title>Pagina Principal</title>
+</head>
+<body>
+   <div class="container">
+        <div class="row"><br>
+            <h4>Carreras</h4><hr>
+            <% carreras.forEach (function(carrera){ %>
+                <div class="col-md-3">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">
+                            <p>Nombre : <a class="btn btn-outline-success"><i class="bi bi-person-fill-gear"></i> <%=carrera.piloto %></a></p>
+                            <p>Nombre de carrera : <div class="btn btn-outline-primary"><i class="bi bi-ev-front-fill"></i> <%=carrera.circuitos %></p></div>
+                        </div>
+                        <div class="card-body alert alert-light">
+                            <p>Minutos de Carrera : <a class="btn btn-outline-dark"><i class="bi bi-clock-history"></i> <%=carrera.minutos %></a></p>
+                            <p>Ubicación de Carrera: <a class="btn btn-outline-dark"><i class="bi bi-trophy"></i> <%=carrera.ubicacion %></a></p>
+                            <p>Abandono: <a class="btn btn-outline-dark"> <i class="bi bi-wrench-adjustable-circle"></i><%=carrera.abandono %></a></p>
+                            <p>Escuderia: <a class="btn btn-outline-dark"> <i class="bi bi-alipay"></i><%=carrera.escuderia %></a></p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/delete/<%=carrera.id %>" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+           <% }); %>
+        </div>
+   </div>
+   <%- include('partials/paginacion') %>
+</body>
+</html>
