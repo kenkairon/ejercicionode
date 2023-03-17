@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+    <title>Ranking de Abandonos por Piloto</title>
+    <body>
+        <table class="container table table-striped table-hover">
+            <h4 class="container">Ranking de Abandonos por Piloto</h4>
+            <thead>
+                <tr>
+                    <th>Piloto</th>
+                    <th>Abandonos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i<rankingAbandono.length; i++) { %>
+                    <tr>
+                        <td><%= rankingAbandono[i].piloto %></td>
+                        <td><%= rankingAbandono[i].abandonos %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>
+    
+

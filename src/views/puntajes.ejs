@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<!-- puntajes.ejs -->
+<div class="container">
+  <h2>Puntajes por Escuderia</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Escudería</th>
+        <th>Puntaje total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const [escuderia, puntaje] of Object.entries(puntajes)) { %>
+      <tr>
+        <td><%= escuderia %></td>
+        <td><%= puntaje %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+
+
+

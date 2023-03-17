@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('partials/header') %>
-    <title>Nueva Competencia</title>
- 
-</head>
-<body class="row container"><br>
+<%- include('partials/header') %>
+<title>Nueva Competencia</title>
+<%- include('partials/nav') %>
+<body><br>
     <div class="container col-xl-10">
         <form method="POST" action="/new-ingreso" class="card card-body border-primary">
             <div class="col-xl-8">
@@ -29,7 +25,7 @@
                     <% }); %>
                 </select>
                 <br>
-            </div>           
+            </div>
             <div class="col-xl-8">
                 <select id="escuderias-select" class="form-select" aria-label="Default select example" name="escuderia"required>
                     <option selected>Escudería</option>
@@ -59,6 +55,7 @@
                     <option value="9">Posición 9</option>
                     <option value="10">Posición 10</option>
                     <option value="11">Posición 11</option>
+                    <option value="20">Abandono</option>
                 </select><br>
                 <div id="select-dinamico"></div>
             </div><hr>
@@ -93,6 +90,7 @@ function mostrarSelect() {
     9: "<select name='puntaje'><option value='2'>2puntos</option>",
     10: "<select name='puntaje'><option value='1'>1puntos</option>",
     11: "<select name='puntaje'><option value='0'>0puntos</option>",
+    20: "<select name='puntaje'><option value='0'>0puntos</option>",
     };
     const selectDinamico = document.getElementById("select-dinamico");
     const opcionSeleccionada = document.getElementById("opciones").value;
