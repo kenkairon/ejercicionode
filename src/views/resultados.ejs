@@ -1,104 +1,127 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
 <style>
-    .columna {
+.columna {
         display: table-cell;
-    }
+}
 </style>
 <title>Resultados</title>
 <div class="container">
-    <table class="table table table-striped table-hover">
+<table class="table table table-striped table-hover">
         <thead>
         <tr>
         <th><h5>Pilotos</h5></th>
         <% circuitos.forEach(function(flag) { %>
-            <td>
+        <td>
                 <img src="<%= flag.imagen %>" alt="Banderas de países" width="30px" height="30px">
-            </td>
+        </td>
         <% }); %>
 
         </tr>
         <tr>
         </thead>
-    <tbody>
-        
+        <tbody>
         <% resultadosConPuntaje.forEach((resultado) => { %>
-            <% if (resultado.circuitos === "Gulf Air Bahrain GP, Bahrain International Circuit") { %>
-        <tr>
-                    <td class="columna"><%= resultado.piloto %></td>
-                    <td class="columna"><%= resultado.puntaje %></td>
-            <% } else if (resultado.circuitos === "STC Saudi Arabian GP, Jeddah Street Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% if (resultado.circuitos === "Gulf Air Bahrain GP, Bahrain International Circuit") { %>
+        <tr>    
+                
+                <td class="columna"><%= resultado.piloto %></td>
+                <td class="columna"><%= resultado.puntaje %></td>
+                
+                <% } else if (resultado.circuitos === "STC Saudi Arabian GP, Jeddah Street Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Rolex Australian GP, Circuito Grand Prix Melbourne") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Rolex Australian GP, Circuito Grand Prix Melbourne") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "GP de Azerbaiyán, Baku City Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "GP de Azerbaiyán, Baku City Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Crypto.com Miami GP, Miami International Autodrome") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Crypto.com Miami GP, Miami International Autodrome") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Made in Italy Emilia Romagna GP, Autodromo Enzo e Dino Ferrari") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Made in Italy Emilia Romagna GP, Autodromo Enzo e Dino Ferrari") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "GP de Mónaco, Circuit de Monaco") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "GP de Mónaco, Circuit de Monaco") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "AWS Spanish GP, Circuit de Barcelona-Catalunya") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "AWS Spanish GP, Circuit de Barcelona-Catalunya") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Pirelli Canada GP, Circuit Gilles-Villeneuve") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Pirelli Canada GP, Circuit Gilles-Villeneuve") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "GP de Austria, Red Bull Ring") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "GP de Austria, Red Bull Ring") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Aramco British GP, Silverstone Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Aramco British GP, Silverstone Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "GP de Hungría, Hungaroring") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "GP de Hungría, Hungaroring") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "GP de Bélgica, Circuit de Spa-Francorchamps") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "GP de Bélgica, Circuit de Spa-Francorchamps") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Heineken Dutch GP, Circuit Park Zandvoort") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Heineken Dutch GP, Circuit Park Zandvoort") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Pirelli Italian GP, Autodromo Nazionale Monza") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Pirelli Italian GP, Autodromo Nazionale Monza") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Singapore Airlines Singapore GP, Marina Bay Street Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Singapore Airlines Singapore GP, Marina Bay Street Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Lenovo Japanese GP, Suzuka International Racing Course") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Lenovo Japanese GP, Suzuka International Racing Course") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Qatar GP, Losail International Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Qatar GP, Losail International Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Lenovo United States GP, Circuit of the Americas") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Lenovo United States GP, Circuit of the Americas") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Mexico GP, Autodromo Hermanos Rodriguez") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Mexico GP, Autodromo Hermanos Rodriguez") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Rolex Brazil GP, Autodromo Jose Carlos Pace") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Rolex Brazil GP, Autodromo Jose Carlos Pace") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Heineken Las Vegas GP, Las Vegas Streent Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Heineken Las Vegas GP, Las Vegas Streent Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Etihad Airways Abu Dhabi GP, Yas Marina Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Etihad Airways Abu Dhabi GP, Yas Marina Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% } else if (resultado.circuitos === "Etihad Airways Abu Dhabi GP, Yas Marina Circuit") { %>
-                    <td class="columna"><%= resultado.puntaje %></td>
+                <% } else if (resultado.circuitos === "Etihad Airways Abu Dhabi GP, Yas Marina Circuit") { %>
+                <td class="columna"><%= resultado.puntaje %></td>
 
-            <% }  %>
+        <% }  %>
         <% }); %>
-    </tr>
-    </tbody>
-    </table>
+        </tr>
+
+</tbody>
+</table>
+
+
+<table class="table table table-striped table-hover">
+        <th><h5>Pilotos</h5></th>
+        <th><h5>Puntajes Totales</h5></th>
+        <% const puntajesPorPiloto = resultadosConPuntaje.reduce((acumulado, resultado) => {
+                if (!acumulado[resultado.piloto]) {
+                  acumulado[resultado.piloto] = 0;
+                }
+                acumulado[resultado.piloto] += resultado.puntaje;
+                return acumulado;
+              }, {});
+              Object.keys(puntajesPorPiloto).forEach((piloto) => { %>
+             <tr>
+               
+               <td><%= piloto %></td>        
+               <td><%= puntajesPorPiloto[piloto] %></td>                        
+          
+           <% }) %>
+             </tr>
+</table>
 </div>
